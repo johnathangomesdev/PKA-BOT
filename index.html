@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="dark-theme">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- SEO Meta Tags -->
+  <title>PKABOT — Bot e Automação Oficial para Poke Alliance Online</title>
+  <meta name="description" content="Conheça o PKABOT, software de automação desenvolvido para otimizar sua experiência em Poke Alliance Online com navegação por marcas, combate inteligente, cura automática e execução em segundo plano." />
+  <meta name="keywords" content="PKABOT, Poke Alliance Online, Bot para Poke Alliance Online, Automação para Poke Alliance Online, software gaming, rota minimapa, auto heal" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#070a12" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="PKABOT" />
+  <meta property="og:title" content="PKABOT — Leve sua experiência em Poke Alliance Online a outro nível" />
+  <meta property="og:description" content="Conheça o PKABOT, uma ferramenta de automação desenvolvida para otimizar sua experiência em Poke Alliance Online, com controlo, eficiência e praticidade." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PKABOT — Automação para Poke Alliance Online" />
+  <meta name="twitter:description" content="Software de automação em segundo plano com navegação por marcas, combate inteligente e captura automática para Poke Alliance Online." />
+
+  <!-- Favicon Provisório -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+
+  <!-- Google Fonts: Plus Jakarta Sans, Space Grotesk & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet Principal -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Link de Saltar para o Conteúdo (Acessibilidade) -->
+  <a href="#main-content" class="skip-link">Saltar para o conteúdo principal</a>
+
+  <!-- Luzes de Ambiente Subtis (Background) -->
+  <div class="ambient-glow ambient-glow--purple" aria-hidden="true"></div>
+  <div class="ambient-glow ambient-glow--blue" aria-hidden="true"></div>
+
+  <!-- ========================================================================
+       HEADER / NAVEGAÇÃO PRINCIPAL
+       ======================================================================== -->
+  <header class="site-header" id="top">
+    <div class="container header-container">
+      <!-- Logotipo Tipográfico Original PKABOT -->
+      <a href="#inicio" class="brand-logo" aria-label="PKABOT — Início">
+        <span class="brand-logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 36 36" width="28" height="28" fill="none">
+            <rect x="2" y="2" width="32" height="32" rx="8" fill="#0d1322" stroke="url(#logoGrad)" stroke-width="2" />
+            <path d="M20.2 8L11 19.5H17.5L15.8 28L25 16.5H18.5L20.2 8Z" fill="url(#logoGrad)" />
+            <defs>
+              <linearGradient id="logoGrad" x1="4" y1="4" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#a855f7" />
+                <stop offset="100%" stop-color="#0ea5e9" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand-logo__wordmark">PKA<span class="brand-logo__accent">BOT</span></span>
+      </a>
+
+      <!-- Menu de Navegação Desktop & Mobile -->
+      <nav class="site-nav" id="site-nav" aria-label="Navegação Principal">
+        <ul class="site-nav__list">
+          <li><a href="#inicio" class="site-nav__link">Início</a></li>
+          <li><a href="#funcionalidades" class="site-nav__link">Funcionalidades</a></li>
+          <li><a href="#demonstracao" class="site-nav__link">Demonstração</a></li>
+          <li><a href="#como-funciona" class="site-nav__link">Como funciona</a></li>
+          <li><a href="#planos" class="site-nav__link">Planos</a></li>
+          <li><a href="#faq" class="site-nav__link">FAQ</a></li>
+        </ul>
+        <div class="site-nav__mobile-cta">
+          <a href="#planos" class="btn btn--primary btn--full">Adquirir agora</a>
+        </div>
+      </nav>
+
+      <!-- Botão Destacado Desktop + Botão Hamburger Mobile -->
+      <div class="header-actions">
+        <a href="#planos" class="btn btn--primary btn--sm header-cta">
+          <span>Adquirir agora</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+        <button
+          type="button"
+          class="mobile-menu-toggle"
+          id="mobile-menu-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Abrir menu de navegação"
+        >
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       CONTEÚDO PRINCIPAL
+       ======================================================================== -->
+  <main id="main-content">
+    <!-- ======================================================================
+         1. HERO SECTION
+         ====================================================================== -->
+    <section class="hero-section" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <!-- Coluna de Conteúdo Comercial -->
+        <div class="hero-content reveal">
+          <div class="status-pill">
+            <span class="status-pill__dot" aria-hidden="true"></span>
+            <span id="hero-badge">SOFTWARE DE AUTOMAÇÃO PARA POKE ALLIANCE ONLINE</span>
+          </div>
+
+          <h1 class="hero-title" id="hero-title">
+            Leve sua experiência em Poke Alliance Online a outro nível.
+          </h1>
+
+          <p class="hero-subtitle" id="hero-subtitle">
+            Conheça o PKABOT, uma ferramenta de automação desenvolvida para otimizar sua experiência de jogo, com controlo, eficiência e praticidade.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#funcionalidades" class="btn btn--primary btn--lg" id="hero-primary-cta">
+              <span>Conhecer funcionalidades</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a href="#planos" class="btn btn--secondary btn--lg" id="hero-secondary-cta">
+              <span>Ver planos</span>
+            </a>
+          </div>
+
+          <!-- Destaques Técnicos Reais -->
+          <div class="hero-specs" role="list" aria-label="Destaques técnicos do PKABOT">
+            <div class="hero-spec-item" role="listitem">
+              <span class="hero-spec-item__icon" aria-hidden="true">⚡</span>
+              <div>
+                <strong>Execução em 2º Plano</strong>
+                <span>Não rouba o cursor do seu mouse</span>
+              </div>
+            </div>
+            <div class="hero-spec-item" role="listitem">
+              <span class="hero-spec-item__icon" aria-hidden="true">🛡️</span>
+              <div>
+                <strong>Licença HWID V2</strong>
+                <span>Vinculada ao seu dispositivo</span>
+              </div>
+            </div>
+            <div class="hero-spec-item" role="listitem">
+              <span class="hero-spec-item__icon" aria-hidden="true">🖥️</span>
+              <div>
+                <strong>Windows 10 / 11</strong>
+                <span>Instalador nativo sem Python</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Visual: Área para Captura de Ecrã Real do PKABOT -->
+        <div class="hero-showcase reveal">
+          <div class="showcase-frame" id="hero-showcase-frame">
+            <!-- Barra de Topo da Moldura -->
+            <div class="showcase-frame__topbar">
+              <div class="window-dots" aria-hidden="true">
+                <span class="window-dot window-dot--red"></span>
+                <span class="window-dot window-dot--yellow"></span>
+                <span class="window-dot window-dot--green"></span>
+              </div>
+              <div class="showcase-frame__title">PKABOT • Interface Windows (64-bit)</div>
+              <div class="showcase-frame__tag">v1.0.0</div>
+            </div>
+
+            <!-- Corpo da Área Visual (Carrega imagem real se definida em config.js ou exibe espaço reservado elegante) -->
+            <div class="showcase-frame__body" id="hero-screenshot-container">
+              <!-- Espaço Reservado Elegante (Padrão quando hero.screenshotUrl está vazio) -->
+              <div class="screenshot-placeholder" id="hero-screenshot-placeholder">
+                <div class="screenshot-placeholder__icon" aria-hidden="true">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="url(#iconGradHero)" stroke-width="1.6">
+                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                    <path d="M8 21h8M12 17v4" stroke-linecap="round" />
+                    <path d="M7 10l3-3 3 3 4-4" stroke-linecap="round" stroke-linejoin="round" />
+                    <defs>
+                      <linearGradient id="iconGradHero" x1="2" y1="3" x2="22" y2="21" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#a855f7" />
+                        <stop offset="100%" stop-color="#0ea5e9" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <span class="screenshot-placeholder__badge">ÁREA RESERVADA PARA CAPTURA DE ECRÃ REAL</span>
+                <h2 class="screenshot-placeholder__heading">Pré-visualização Oficial da Interface PKABOT</h2>
+                <p class="screenshot-placeholder__text">
+                  Espaço preparado para exibir a captura de ecrã real da interface Dark Mode do <strong>PKABOT</strong> (abas <em>Geral &amp; Áreas</em>, <em>Combate &amp; Cura</em> e <em>Rota &amp; Captura</em>).
+                </p>
+                <div class="screenshot-placeholder__modules" aria-hidden="true">
+                  <span class="module-chip">🖥️ Geral &amp; Áreas</span>
+                  <span class="module-chip">⚔️ Combate &amp; Cura</span>
+                  <span class="module-chip">🗺️ Rota &amp; Captura</span>
+                  <span class="module-chip">🔍 Debug em Tempo Real</span>
+                </div>
+                <small class="screenshot-placeholder__hint">
+                  Configurável via <code>hero.screenshotUrl</code> em <code>js/config.js</code>
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         2. FUNCIONALIDADES COMPROVADAS
+         ====================================================================== -->
+    <section class="section features-section" id="funcionalidades" aria-labelledby="features-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">TECNOLOGIA E PRECISÃO</span>
+          <h2 class="section-title" id="features-heading">Funcionalidades Comprovadas do PKABOT</h2>
+          <p class="section-description">
+            Cada recurso do PKABOT foi projetado especificamente para a rotina de jogo no <strong>Poke Alliance Online</strong>, priorizando estabilidade, controlo total e execução silenciosa em segundo plano.
+          </p>
+        </div>
+
+        <!-- Grid de Funcionalidades (Renderizado a partir de config.js com fallback semântico) -->
+        <div class="features-grid" id="features-grid">
+          <article class="feature-card reveal">
+            <div class="feature-card__header">
+              <div class="feature-card__icon" aria-hidden="true">🖱️</div>
+              <span class="feature-card__badge">Segundo Plano</span>
+            </div>
+            <h3 class="feature-card__title">Comandos Diretos na Janela sem Roubar o Mouse</h3>
+            <p class="feature-card__desc">
+              O PKABOT envia cliques no minimapa, movimentos de cursor e atalhos de teclado diretamente para a janela do Poke Alliance Online via mensagens nativas do Windows, sem mover nem bloquear o seu cursor físico.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-card__header">
+              <div class="feature-card__icon" aria-hidden="true">🧭</div>
+              <span class="feature-card__badge">Rotas &amp; Minimapa</span>
+            </div>
+            <h3 class="feature-card__title">Navegação por Marcas com Pré-Busca Inteligente</h3>
+            <p class="feature-card__desc">
+              Monte rotas personalizadas com até 20 símbolos do minimapa, reordene a sequência com Clique e Arraste e salve múltiplas listas. Durante a espera pelos monstros, o PKABOT já pré-localiza a próxima marca para avançar sem atrasos.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-card__header">
+              <div class="feature-card__icon" aria-hidden="true">⚔️</div>
+              <span class="feature-card__badge">Combate Automatizado</span>
+            </div>
+            <h3 class="feature-card__title">Gestão de Batalha, Combo e Agrupamento</h3>
+            <p class="feature-card__desc">
+              Monitoriza a lista Battle em tempo real, aguarda o agrupamento configurável de monstros, interrompe o deslocamento caso o limite seja atingido em rota e executa sequências de Combo, Target, Defesa, Safe Combo e PokeStop.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-card__header">
+              <div class="feature-card__icon" aria-hidden="true">💊</div>
+              <span class="feature-card__badge">Sobrevivência &amp; Segurança</span>
+            </div>
+            <h3 class="feature-card__title">Cura Independente, Controlo de Revives e Auto Logout</h3>
+            <p class="feature-card__desc">
+              Leitura separada das barras de vida do Player e do Pokémon aliado para acionamento automático de cura e medicina. Inclui leitura ótica do contador de Revives e proteção de Auto Logout (Ctrl+Q) ao atingir o limite mínimo.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-card__header">
+              <div class="feature-card__icon" aria-hidden="true">🎯</div>
+              <span class="feature-card__badge">Captura Automática</span>
+            </div>
+            <h3 class="feature-card__title">Deteção de Corpos Mortos e Uso de Pokébolas</h3>
+            <p class="feature-card__desc">
+              Gestor integrado para capturar e cadastrar recortes de sprites de corpos mortos diretamente da janela do jogo. Ao término de cada combate, localiza os corpos na área de visão e aciona o atalho de Pokébola automaticamente.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-card__header">
+              <div class="feature-card__icon" aria-hidden="true">📐</div>
+              <span class="feature-card__badge">Calibração &amp; Telemetria</span>
+            </div>
+            <h3 class="feature-card__title">Assistente Visual de Regiões e Debug ao Vivo</h3>
+            <p class="feature-card__desc">
+              Ferramenta interativa de arrastar e soltar para calibrar Minimapa, Lista Battle, Player HP, Poké HP e Visão em segundos, acompanhada de janela de Debug em tempo real com visualização das deteções e registo de ações.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. DEMONSTRAÇÃO EM VÍDEO
+         ====================================================================== -->
+    <section class="section demo-section" id="demonstracao" aria-labelledby="demo-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">DEMONSTRAÇÃO OFICIAL</span>
+          <h2 class="section-title" id="demo-heading">Veja o PKABOT em Ação</h2>
+          <p class="section-description" id="demo-subtitle">
+            Acompanhe na prática como o PKABOT executa rotas, gerencia combates e opera em segundo plano no Poke Alliance Online.
+          </p>
+        </div>
+
+        <div class="video-stage reveal" id="video-stage">
+          <!-- O main.js injeta automaticamente o iframe do YouTube quando demo.youtubeVideoIdOrUrl é preenchido em config.js -->
+          <div class="video-placeholder" id="video-placeholder">
+            <div class="video-placeholder__play-ring" aria-hidden="true">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5.14v14l11-7-11-7z" />
+              </svg>
+            </div>
+            <span class="video-placeholder__tag">SUPORTE PARA INCORPORAÇÃO YOUTUBE PRONTO</span>
+            <h3 class="video-placeholder__title" id="video-placeholder-title">
+              Vídeo Demonstrativo Oficial em Breve
+            </h3>
+            <p class="video-placeholder__desc" id="video-placeholder-desc">
+              Espaço reservado para incorporação das gravações oficiais do PKABOT em funcionamento no Poke Alliance Online.
+            </p>
+            <small class="video-placeholder__hint">
+              Para ativar o player, adicione o ID ou URL do vídeo em <code>demo.youtubeVideoIdOrUrl</code> no ficheiro <code>js/config.js</code>.
+            </small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. COMO FUNCIONA
+         ====================================================================== -->
+    <section class="section steps-section" id="como-funciona" aria-labelledby="steps-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">PASSO A PASSO SIMPLES</span>
+          <h2 class="section-title" id="steps-heading">Como Funciona o PKABOT</h2>
+          <p class="section-description">
+            Do momento da escolha do plano até à execução automatizada no <strong>Poke Alliance Online</strong> em poucos minutos.
+          </p>
+        </div>
+
+        <!-- Grid dos 6 Passos -->
+        <ol class="steps-grid" id="steps-grid">
+          <li class="step-card reveal">
+            <span class="step-card__num">01</span>
+            <h3 class="step-card__title">Escolha o seu plano</h3>
+            <p class="step-card__desc">Selecione a assinatura de 30 dias do PKABOT na secção de planos.</p>
+          </li>
+          <li class="step-card reveal">
+            <span class="step-card__num">02</span>
+            <h3 class="step-card__title">Efetue o pagamento</h3>
+            <p class="step-card__desc">Realize o pagamento de forma rápida através do checkout PIX quando disponível.</p>
+          </li>
+          <li class="step-card reveal">
+            <span class="step-card__num">03</span>
+            <h3 class="step-card__title">Receba a licença por email</h3>
+            <p class="step-card__desc">O código de licença e as instruções de acesso são enviados para o seu email.</p>
+          </li>
+          <li class="step-card reveal">
+            <span class="step-card__num">04</span>
+            <h3 class="step-card__title">Instale o PKABOT</h3>
+            <p class="step-card__desc">Execute o instalador oficial no Windows sem precisar de instalar Python ou dependências.</p>
+          </li>
+          <li class="step-card reveal">
+            <span class="step-card__num">05</span>
+            <h3 class="step-card__title">Introduza a licença e ative o programa</h3>
+            <p class="step-card__desc">Informe o seu email e a chave recebida na janela de ativação do PKABOT.</p>
+          </li>
+          <li class="step-card reveal">
+            <span class="step-card__num">06</span>
+            <h3 class="step-card__title">Comece a utilizar</h3>
+            <p class="step-card__desc">Calibre as regiões do jogo uma única vez, escolha a sua rota e inicie a automação.</p>
+          </li>
+        </ol>
+
+        <!-- Aviso Destacado da Validade de 30 Dias -->
+        <div class="validity-banner reveal" role="note">
+          <div class="validity-banner__icon" aria-hidden="true">⏱️</div>
+          <p class="validity-banner__text" id="how-validity-banner">
+            <strong>Garantia de Uso Integral:</strong> A licença terá validade de 30 dias a partir da primeira ativação.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. PLANOS E ASSINATURA
+         ====================================================================== -->
+    <section class="section pricing-section" id="planos" aria-labelledby="pricing-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">LICENCIAMENTO COMERCIAL</span>
+          <h2 class="section-title" id="pricing-heading">Plano de Assinatura</h2>
+          <p class="section-description" id="pricing-subtitle">
+            Acesso completo a todas as ferramentas de automação, navegação, combate e segurança do PKABOT.
+          </p>
+        </div>
+
+        <div class="pricing-wrapper reveal">
+          <div class="pricing-card">
+            <div class="pricing-card__glow" aria-hidden="true"></div>
+
+            <div class="pricing-card__top">
+              <div>
+                <span class="pricing-card__badge" id="plan-badge">ACESSO COMPLETO</span>
+                <h3 class="pricing-card__name" id="plan-name">Licença PKABOT — 30 Dias</h3>
+              </div>
+              <div class="pricing-card__pix-tag" title="Preparado para integração com Checkout PIX">
+                <span>⚡ Compatível com PIX</span>
+              </div>
+            </div>
+
+            <div class="pricing-card__price-box">
+              <span class="pricing-card__currency" id="plan-currency">R$</span>
+              <span class="pricing-card__amount" id="plan-price">A definir</span>
+              <span class="pricing-card__period" id="plan-period">/ 30 dias</span>
+            </div>
+            <p class="pricing-card__note" id="plan-note">
+              Valor comercial configurável em <code>js/config.js</code> • Pagamento único sem renovação automática forçada
+            </p>
+
+            <div class="pricing-card__validity-pill" id="plan-validity-pill">
+              🔒 A licença terá validade de 30 dias a partir da primeira ativação.
+            </div>
+
+            <ul class="pricing-card__features" id="plan-features-list">
+              <!-- Preenchido dinamicamente por main.js a partir de config.js -->
+            </ul>
+
+            <div class="pricing-card__action">
+              <button
+                type="button"
+                class="btn btn--primary btn--lg btn--full"
+                id="buy-now-btn"
+                data-action="open-checkout"
+              >
+                <span id="buy-now-text">Comprar agora</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <span class="pricing-card__security-caption">
+                Estrutura preparada para integração com checkout PIX • Ativação individual por HWID
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. PERGUNTAS FREQUENTES (FAQ)
+         ====================================================================== -->
+    <section class="section faq-section" id="faq" aria-labelledby="faq-heading">
+      <div class="container faq-container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">TIRE AS SUAS DÚVIDAS</span>
+          <h2 class="section-title" id="faq-heading">Perguntas Frequentes (FAQ)</h2>
+          <p class="section-description">
+            Tudo o que precisa de saber sobre o funcionamento, instalação e licenciamento do <strong>PKABOT</strong> para <strong>Poke Alliance Online</strong>.
+          </p>
+        </div>
+
+        <div class="faq-list reveal" id="faq-list" role="region" aria-label="Lista de Perguntas Frequentes">
+          <!-- Renderizado dinamicamente a partir de js/config.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER / RODAPÉ
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Coluna 1: Marca e Descrição -->
+        <div class="footer-brand">
+          <a href="#inicio" class="brand-logo" aria-label="PKABOT — Início">
+            <span class="brand-logo__mark" aria-hidden="true">
+              <svg viewBox="0 0 36 36" width="26" height="26" fill="none">
+                <rect x="2" y="2" width="32" height="32" rx="8" fill="#0d1322" stroke="url(#logoGradFooter)" stroke-width="2" />
+                <path d="M20.2 8L11 19.5H17.5L15.8 28L25 16.5H18.5L20.2 8Z" fill="url(#logoGradFooter)" />
+                <defs>
+                  <linearGradient id="logoGradFooter" x1="4" y1="4" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#a855f7" />
+                    <stop offset="100%" stop-color="#0ea5e9" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+            <span class="brand-logo__wordmark">PKA<span class="brand-logo__accent">BOT</span></span>
+          </a>
+          <p class="footer-brand__desc">
+            Ferramenta avançada de automação para Windows desenvolvida para otimizar a sua jornada em <strong>Poke Alliance Online</strong> com precisão e segurança.
+          </p>
+        </div>
+
+        <!-- Coluna 2: Navegação -->
+        <div class="footer-col">
+          <h3 class="footer-col__title">Navegação</h3>
+          <ul class="footer-col__links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#funcionalidades">Funcionalidades</a></li>
+            <li><a href="#demonstracao">Demonstração</a></li>
+            <li><a href="#como-funciona">Como funciona</a></li>
+            <li><a href="#planos">Planos</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Suporte & Redes Sociais -->
+        <div class="footer-col">
+          <h3 class="footer-col__title">Suporte &amp; Comunidade</h3>
+          <ul class="footer-col__links">
+            <li>
+              <a href="mailto:suporte@pkabot.com" id="footer-support-email">
+                ✉️ suporte@pkabot.com
+              </a>
+            </li>
+            <li><a href="#" id="social-discord" rel="noopener noreferrer">💬 Comunidade Discord</a></li>
+            <li><a href="#" id="social-youtube" rel="noopener noreferrer">▶️ Canal YouTube</a></li>
+            <li><a href="#" id="social-instagram" rel="noopener noreferrer">📸 Instagram</a></li>
+            <li><a href="#" id="social-telegram" rel="noopener noreferrer">📢 Canal Telegram</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4: Legal -->
+        <div class="footer-col">
+          <h3 class="footer-col__title">Informações Legais</h3>
+          <ul class="footer-col__links">
+            <li>
+              <button type="button" class="footer-link-btn" data-modal-target="terms-modal">
+                Termos de Utilização
+              </button>
+            </li>
+            <li>
+              <button type="button" class="footer-link-btn" data-modal-target="privacy-modal">
+                Política de Privacidade
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Aviso Obrigatório de Independência -->
+      <div class="footer-disclaimer-box">
+        <p class="footer-disclaimer" id="footer-disclaimer">
+          PKABOT é um software independente desenvolvido para Poke Alliance Online. Não é um produto oficial nem possui afiliação com os desenvolvedores ou responsáveis pelo jogo.
+        </p>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="footer-year">2026</span> <strong>PKABOT</strong>. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL: CHECKOUT / AQUISIÇÃO (Sem simular pagamentos falsos)
+       ======================================================================== -->
+  <div class="modal-backdrop" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title" hidden>
+    <div class="modal-card">
+      <div class="modal-card__header">
+        <span class="modal-card__badge">AQUISIÇÃO DE LICENÇA PKABOT</span>
+        <button type="button" class="modal-close-btn" data-close-modal aria-label="Fechar janela">✕</button>
+      </div>
+      <div class="modal-card__body">
+        <h3 class="modal-card__title" id="checkout-modal-title">Integração de Checkout PIX Preparada</h3>
+        <p class="modal-card__text">
+          O sistema de vendas automatizado via <strong>Checkout PIX</strong> está em fase final de configuração comercial.
+        </p>
+        <div class="modal-info-box">
+          <p>
+            <strong>Resumo da Licença:</strong> Assinatura de 30 dias para <strong>PKABOT</strong> (válida por 30 dias a partir da primeira ativação no programa).
+          </p>
+          <p>
+            Para adquirir a sua chave ou solicitar informações comerciais agora, entre em contacto através do canal oficial de atendimento:
+          </p>
+          <a href="mailto:suporte@pkabot.com" class="modal-contact-pill" id="modal-support-email">
+            suporte@pkabot.com
+          </a>
+        </div>
+      </div>
+      <div class="modal-card__footer">
+        <button type="button" class="btn btn--secondary" data-close-modal>Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: TERMOS DE UTILIZAÇÃO (Conteúdo provisório para revisão jurídica)
+       ======================================================================== -->
+  <div class="modal-backdrop" id="terms-modal" role="dialog" aria-modal="true" aria-labelledby="terms-modal-title" hidden>
+    <div class="modal-card">
+      <div class="modal-card__header">
+        <span class="modal-card__badge">DOCUMENTO LEGAL [CONTEÚDO PROVISÓRIO]</span>
+        <button type="button" class="modal-close-modal modal-close-btn" data-close-modal aria-label="Fechar janela">✕</button>
+      </div>
+      <div class="modal-card__body">
+        <h3 class="modal-card__title" id="terms-modal-title">Termos de Utilização — PKABOT</h3>
+        <p class="modal-card__text">
+          <em>[Texto provisório identificado para revisão antes do lançamento comercial definitivo]</em>
+        </p>
+        <ul class="modal-legal-list">
+          <li><strong>1. Objeto:</strong> O PKABOT é um utilitário de automação independente para Windows destinado ao jogo Poke Alliance Online.</li>
+          <li><strong>2. Licenciamento:</strong> Cada licença concede direito de utilização por 30 dias corridos a partir da primeira ativação, vinculada ao identificador único de máquina (HWID).</li>
+          <li><strong>3. Responsabilidade de Uso:</strong> O utilizador reconhece que o PKABOT é um software independente sem afiliação com os desenvolvedores do jogo, assumindo total responsabilidade pela sua utilização.</li>
+          <li><strong>4. Propriedade Intelectual:</strong> É proibida a engenharia reversa, redistribuição não autorizada ou partilha de chaves vinculadas a terceiros.</li>
+        </ul>
+      </div>
+      <div class="modal-card__footer">
+        <button type="button" class="btn btn--secondary" data-close-modal>Compreendi</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: POLÍTICA DE PRIVACIDADE (Conteúdo provisório para revisão jurídica)
+       ======================================================================== -->
+  <div class="modal-backdrop" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title" hidden>
+    <div class="modal-card">
+      <div class="modal-card__header">
+        <span class="modal-card__badge">PRIVACIDADE [CONTEÚDO PROVISÓRIO]</span>
+        <button type="button" class="modal-close-btn" data-close-modal aria-label="Fechar janela">✕</button>
+      </div>
+      <div class="modal-card__body">
+        <h3 class="modal-card__title" id="privacy-modal-title">Política de Privacidade — PKABOT</h3>
+        <p class="modal-card__text">
+          <em>[Texto provisório identificado para revisão antes do lançamento comercial definitivo]</em>
+        </p>
+        <ul class="modal-legal-list">
+          <li><strong>1. Dados Recolhidos:</strong> Recolhemos apenas o endereço de email utilizado na compra e o código criptográfico de hardware (HWID) necessário para emissão e validação da licença de 30 dias.</li>
+          <li><strong>2. Armazenamento Local:</strong> As rotas, recortes de sprites e calibrações de ecrã do utilizador ficam armazenados localmente no computador do próprio utilizador.</li>
+          <li><strong>3. Partilha de Dados:</strong> Não vendemos nem partilhamos informações pessoais com terceiros, exceto o estritamente necessário para o processamento de pagamentos quando ativo.</li>
+        </ul>
+      </div>
+      <div class="modal-card__footer">
+        <button type="button" class="btn btn--secondary" data-close-modal>Compreendi</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts de Configuração e Interatividade -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# Segurança — Nunca publicar variáveis de ambiente, chaves ou credenciais
+.env
+.env.*
+*.key
+*.pem
+*.secret
+
+# Nunca incluir executáveis, instaladores ou scripts Python do bot no repositório do site
+*.exe
+*.msi
+*.iss
+*.py
+*.pyc
+*.spec
+*.bat
+
+# Ficheiros temporários de sistema/editor
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
