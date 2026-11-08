@@ -331,9 +331,18 @@
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ method: method, email: email })
           });
-          const data = await response.json();
-          if (!response.ok || !data.checkoutUrl || typeof data.checkoutUrl !== "string") {
-            throw new Error(data.message || "Não foi possível iniciar o pagamento.");
+          const responseBody = await response.text();
+          let data = null;
+          if (responseBody) {
+            try { data = JSON.parse(responseBody); } catch { /* resposta de proxy/Worker fora do formato JSON */ }
+          }
+          if (!response.ok || !data || !data.checkoutUrl || typeof data.checkoutUrl !== "string") {
+            const message = data && typeof data.message === "string"
+              ? data.message
+              : response.status === 404
+                ? "A rota de checkout não está publicada neste Worker. Publique a versão atual do projeto no Cloudflare."
+                : "O servidor de pagamento retornou uma resposta vazia ou inválida (HTTP " + response.status + "). Verifique o deploy e os bindings do Worker.";
+            throw new Error(message);
           }
           window.location.assign(data.checkoutUrl);
         } catch (error) {
