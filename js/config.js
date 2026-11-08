@@ -27,7 +27,7 @@ window.PKABOT_CONFIG = {
     secondaryCtaText: "Ver planos",
     // Quando tiver uma captura de ecrã real da interface, coloque o caminho relativo aqui
     // Exemplo: "assets/images/pkabot-interface.png"
-    screenshotUrl: "",
+    screenshotUrl: "assets/images/pkabot-ui.jpg",
     screenshotAlt: "Interface oficial do software PKABOT para Windows"
   },
 
