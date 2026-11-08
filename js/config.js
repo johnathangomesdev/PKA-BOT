@@ -27,7 +27,7 @@ window.PKABOT_CONFIG = {
     secondaryCtaText: "Ver planos",
     // Quando tiver uma captura de ecrã real da interface, coloque o caminho relativo aqui
     // Exemplo: "assets/images/pkabot-interface.png"
-    screenshotUrl: "",
+    screenshotUrl: "assets/images/pkabot-ui.jpg",
     screenshotAlt: "Interface oficial do software PKABOT para Windows"
   },
 
@@ -44,25 +44,24 @@ window.PKABOT_CONFIG = {
       "Espaço reservado para incorporação das gravações oficiais do PKABOT em funcionamento no Poke Alliance Online."
   },
 
-  // 4. Configuração de Planos e Assinatura (Preparado para futura integração PIX)
+  // 4. Configuração de Planos e Assinatura (Pix Mercado Pago + cartão Stripe)
   pricing: {
     sectionTitle: "Plano de Assinatura",
     sectionSubtitle:
       "Acesso completo a todas as ferramentas de automação, navegação, combate e segurança do PKABOT.",
     planName: "Licença PKABOT — 30 Dias",
     planBadge: "ACESSO COMPLETO",
-    // [CONTEÚDO PROVISÓRIO — DEFINIR PREÇO COMERCIAL ANTES DO LANÇAMENTO]
+    // Preço definido comercialmente: R$ 10,00 por licença de 30 dias.
     currency: "R$",
-    priceValue: "A definir",
+    priceValue: "10,00",
     pricePeriod: "/ 30 dias",
     priceNote:
-      "Valor comercial configurável em js/config.js • Pagamento único sem renovação automática forçada",
+      "Pagamento único de R$ 10,00 • sem renovação automática",
     validityHighlight:
       "A licença terá validade de 30 dias a partir da primeira ativação.",
     ctaButtonText: "Comprar agora",
-    // Integração futura com Checkout PIX (manter false até que o gateway real esteja ativo)
-    pixCheckoutEnabled: false,
-    pixCheckoutUrl: "",
+    // O frontend chama apenas o backend. Nunca coloque tokens de gateway aqui.
+    checkoutApiUrl: "/api/checkout",
     featuresIncluded: [
       "Validade de 30 dias contados a partir da primeira ativação",
       "Navegação automática por rotas de até 20 marcas no minimapa",

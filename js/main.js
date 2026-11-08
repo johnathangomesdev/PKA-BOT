@@ -290,61 +290,68 @@
   }
 
   /**
-   * 4. Controlo de Modais e Botão "Comprar agora" (Preparado para PIX sem simular compras)
+   * 4. Controlo de modais e criação de checkout pelo backend
    */
   function initModalsAndCheckout() {
     const buyBtn = document.getElementById("buy-now-btn");
     const checkoutModal = document.getElementById("checkout-modal");
+    const status = document.getElementById("checkout-status");
+    const emailInput = document.getElementById("checkout-email");
 
     function openModal(modalEl) {
       if (!modalEl) return;
       modalEl.hidden = false;
       document.body.style.overflow = "hidden";
     }
-
     function closeAllModals() {
-      document.querySelectorAll(".modal-backdrop").forEach(function (m) {
-        m.hidden = true;
-      });
+      document.querySelectorAll(".modal-backdrop").forEach(function (m) { m.hidden = true; });
       document.body.style.overflow = "";
     }
+    if (buyBtn) buyBtn.addEventListener("click", function () { openModal(checkoutModal); });
 
-    if (buyBtn) {
-      buyBtn.addEventListener("click", function () {
-        if (
-          cfg.pricing &&
-          cfg.pricing.pixCheckoutEnabled === true &&
-          typeof cfg.pricing.pixCheckoutUrl === "string" &&
-          cfg.pricing.pixCheckoutUrl.trim() !== ""
-        ) {
-          window.location.href = cfg.pricing.pixCheckoutUrl.trim();
-        } else {
-          openModal(checkoutModal);
+    document.querySelectorAll("[data-payment-method]").forEach(function (button) {
+      button.addEventListener("click", async function () {
+        const email = emailInput ? emailInput.value.trim() : "";
+        if (!emailInput || !emailInput.checkValidity()) {
+          if (emailInput) { emailInput.reportValidity(); emailInput.focus(); }
+          return;
+        }
+        const method = button.getAttribute("data-payment-method");
+        const apiUrl = cfg.pricing && cfg.pricing.checkoutApiUrl;
+        if (!apiUrl) {
+          if (status) status.textContent = "Checkout indisponível: configure o endpoint seguro do servidor.";
+          return;
+        }
+        const siblings = checkoutModal.querySelectorAll("[data-payment-method]");
+        siblings.forEach(function (item) { item.disabled = true; });
+        if (status) status.textContent = "Preparando pagamento seguro…";
+        try {
+          const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ method: method, email: email })
+          });
+          const data = await response.json();
+          if (!response.ok || !data.checkoutUrl || typeof data.checkoutUrl !== "string") {
+            throw new Error(data.message || "Não foi possível iniciar o pagamento.");
+          }
+          window.location.assign(data.checkoutUrl);
+        } catch (error) {
+          if (status) status.textContent = error.message || "Falha ao iniciar o pagamento. Tente novamente.";
+          siblings.forEach(function (item) { item.disabled = false; });
         }
       });
-    }
-
+    });
     document.querySelectorAll("[data-modal-target]").forEach(function (trigger) {
       trigger.addEventListener("click", function () {
-        const targetId = trigger.getAttribute("data-modal-target");
-        const modal = document.getElementById(targetId);
-        openModal(modal);
+        openModal(document.getElementById(trigger.getAttribute("data-modal-target")));
       });
     });
-
-    document.querySelectorAll("[data-close-modal]").forEach(function (btn) {
-      btn.addEventListener("click", closeAllModals);
-    });
-
+    document.querySelectorAll("[data-close-modal]").forEach(function (btn) { btn.addEventListener("click", closeAllModals); });
     document.querySelectorAll(".modal-backdrop").forEach(function (backdrop) {
-      backdrop.addEventListener("click", function (ev) {
-        if (ev.target === backdrop) closeAllModals();
-      });
+      backdrop.addEventListener("click", function (ev) { if (ev.target === backdrop) closeAllModals(); });
     });
-
-    document.addEventListener("keydown", function (ev) {
-      if (ev.key === "Escape") closeAllModals();
-    });
+    document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") closeAllModals(); });
   }
 
   /**
