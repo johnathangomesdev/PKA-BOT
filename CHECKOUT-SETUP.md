@@ -1,6 +1,6 @@
 # Checkout do PKABOT: Pix Mercado Pago e Stripe
 
-O Worker publica o site e as rotas de checkout a partir desta configuração Wrangler. O preço (R$ 10,00) é fixado no servidor; credenciais nunca são expostas ao navegador.
+O Worker publica o site e as rotas de checkout a partir desta configuração Wrangler. A licença custa R$ 10,00; credenciais nunca são expostas ao navegador.
 
 ## Conectar ao Worker existente
 
@@ -16,3 +16,9 @@ O Worker publica o site e as rotas de checkout a partir desta configuração Wra
 O webhook do Mercado Pago valida a assinatura e consulta o pagamento na API antes de confirmar valor/moeda. O Stripe webhook valida a assinatura e o valor pago. Os pagamentos confirmados são gravados como `paid` na tabela D1. Se o binding D1 ou as variáveis de URL estiverem ausentes, a API responde com uma mensagem JSON explicando a configuração faltante.
 
 **Entrega da licença:** este repositório ainda não contém o serviço que emite/envia as chaves do bot. Conecte a entrega ao status `paid` antes de vender automaticamente. A captura real está em `assets/images/pkabot-ui.jpg`.
+
+## Teste separado do Pix
+
+A página não listada `/teste-pagamento.html` cria uma cobrança Pix real de R$ 0,10, sem emitir licença. Ela grava os pedidos na tabela separada `checkout_test_orders`, preservando os pedidos do plano de R$ 10,00. A tabela é criada automaticamente na primeira tentativa e também está declarada em `worker/schema.sql`. Após pagar, o webhook marca o pedido de teste como `paid` no D1.
+
+O teste de R$ 0,10 está disponível apenas por Pix. A Stripe exige valor mínimo de R$ 0,50 em BRL.

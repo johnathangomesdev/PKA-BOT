@@ -13,3 +13,6 @@
 
 /js/config.js
   Cache-Control: public, max-age=300, must-revalidate
+
+/teste-pagamento.html
+  X-Robots-Tag: noindex, nofollow

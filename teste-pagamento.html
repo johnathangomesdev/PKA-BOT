@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Teste de pagamento Pix — PKABOT</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { min-height: 100vh; display: grid; place-items: center; }
+    .test-card { width: min(100% - 32px, 560px); padding: 32px; border: 1px solid rgba(255,255,255,.12); border-radius: 20px; background: #111827; }
+    .test-card label { display: block; margin: 22px 0 8px; }
+    .test-card input { width: 100%; padding: 13px 14px; border: 1px solid rgba(255,255,255,.2); border-radius: 9px; background: #0b1020; color: #fff; }
+    #test-pix-status { min-height: 24px; margin-top: 16px; }
+    .test-note { color: #b6bfd1; font-size: .92rem; line-height: 1.55; }
+  </style>
+</head>
+<body>
+  <main class="test-card">
+    <span class="section-eyebrow">PÁGINA DE TESTE NÃO LISTADA</span>
+    <h1 class="section-title">Teste do Pix — R$ 0,10</h1>
+    <p class="test-note">Cobrança de teste para validar checkout e webhook. Este produto não inclui licença nem entrega do PKABOT.</p>
+    <form id="test-pix-form">
+      <label for="test-pix-email">Email do pagador</label>
+      <input id="test-pix-email" name="email" type="email" autocomplete="email" required maxlength="254">
+      <button class="btn btn--primary" type="submit" style="margin-top:18px">Gerar Pix de R$ 0,10</button>
+    </form>
+    <p id="test-pix-status" role="status" aria-live="polite"></p>
+    <a class="text-link" href="/">Voltar ao site PKABOT</a>
+  </main>
+  <script src="js/test-pix.js" defer></script>
+</body>
+</html>
