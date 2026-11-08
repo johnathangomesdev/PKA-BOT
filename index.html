@@ -415,8 +415,8 @@
                 <span class="pricing-card__badge" id="plan-badge">ACESSO COMPLETO</span>
                 <h3 class="pricing-card__name" id="plan-name">Licença PKABOT — 30 Dias</h3>
               </div>
-              <div class="pricing-card__pix-tag" title="Preparado para integração com Checkout PIX">
-                <span>⚡ Compatível com PIX</span>
+              <div class="pricing-card__pix-tag" title="Pix via Mercado Pago e cartão via Stripe">
+                <span>⚡ Pix + cartão</span>
               </div>
             </div>
 
@@ -450,7 +450,7 @@
                 </svg>
               </button>
               <span class="pricing-card__security-caption">
-                Estrutura preparada para integração com checkout PIX • Ativação individual por HWID
+                Pix via Mercado Pago ou cartão via Stripe • Ativação individual por HWID
               </span>
             </div>
           </div>
@@ -572,24 +572,18 @@
   <div class="modal-backdrop" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title" hidden>
     <div class="modal-card">
       <div class="modal-card__header">
-        <span class="modal-card__badge">AQUISIÇÃO DE LICENÇA PKABOT</span>
+        <span class="modal-card__badge">CHECKOUT SEGURO • R$ 10,00</span>
         <button type="button" class="modal-close-btn" data-close-modal aria-label="Fechar janela">✕</button>
       </div>
       <div class="modal-card__body">
-        <h3 class="modal-card__title" id="checkout-modal-title">Integração de Checkout PIX Preparada</h3>
-        <p class="modal-card__text">
-          O sistema de vendas automatizado via <strong>Checkout PIX</strong> está em fase final de configuração comercial.
-        </p>
+        <h3 class="modal-card__title" id="checkout-modal-title">Escolha como pagar</h3>
+        <p class="modal-card__text">Licença PKABOT por 30 dias • pagamento único de <strong>R$ 10,00</strong>.</p>
         <div class="modal-info-box">
-          <p>
-            <strong>Resumo da Licença:</strong> Assinatura de 30 dias para <strong>PKABOT</strong> (válida por 30 dias a partir da primeira ativação no programa).
-          </p>
-          <p>
-            Para adquirir a sua chave ou solicitar informações comerciais agora, entre em contacto através do canal oficial de atendimento:
-          </p>
-          <a href="mailto:suporte@pkabot.com" class="modal-contact-pill" id="modal-support-email">
-            suporte@pkabot.com
-          </a>
+          <label for="checkout-email"><strong>Seu email para receber a licença</strong></label>
+          <input id="checkout-email" type="email" autocomplete="email" required placeholder="voce@email.com" />
+          <p id="checkout-status" role="status" aria-live="polite">O pagamento é processado pelo Mercado Pago ou Stripe.</p>
+          <button type="button" class="btn btn--primary btn--full" data-payment-method="pix">Pagar com Pix</button>
+          <button type="button" class="btn btn--secondary btn--full" data-payment-method="card">Pagar com cartão (Stripe)</button>
         </div>
       </div>
       <div class="modal-card__footer">
