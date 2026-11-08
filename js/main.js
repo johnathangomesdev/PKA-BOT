@@ -342,7 +342,10 @@
               : response.status === 404
                 ? "A rota de checkout não está publicada neste Worker. Publique a versão atual do projeto no Cloudflare."
                 : "O servidor de pagamento retornou uma resposta vazia ou inválida (HTTP " + response.status + "). Verifique o deploy e os bindings do Worker.";
-            throw new Error(message);
+            const providerDetail = data && data.provider_code
+              ? " (Mercado Pago: " + data.provider_code + ", HTTP " + data.provider_status + ")"
+              : "";
+            throw new Error(message + providerDetail);
           }
           window.location.assign(data.checkoutUrl);
         } catch (error) {
