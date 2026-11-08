@@ -1,0 +1,7 @@
+.assetsignore
+.gitignore
+wrangler.toml
+README.md
+DEPLOY-CLOUDFLARE.md
+CHECKOUT-SETUP.md
+worker/
